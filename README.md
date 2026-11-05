@@ -11,9 +11,9 @@ Udacity *AI Engineer using Azure* project: a chatbot on a dentist's website. It 
 | Criterion | Evidence |
 |---|---|
 | Bot modified and tested locally | `screenshots/emulator_bot_test.png`: custom welcome, conversation controls and booking in the Bot Framework Emulator |
-| Knowledge base answers FAQs | "I don't have insurance. Can I still be seen?" (confidence 0.93) in `screenshots/emulator_bot_test.png`, `portal_bot_test.png` and `website_bot_test.png` |
+| Knowledge base answers FAQs | "I don't have insurance. Can I still be seen?" (confidence 0.93) in `screenshots/emulator_bot_test.png`, `portal_bot_test.jpg` and `website_bot_test.png` |
 | Intent model recognises scheduling | "What appointments are available?" lists the open times locally (Emulator) and on the web app (`website_bot_test.png`) |
-| Bot code deployed to Azure via GitHub | `screenshots/portal_bot_test.png`: Test in Web Chat in the Azure portal |
+| Bot code deployed to Azure via GitHub | `screenshots/portal_bot_test.jpg`: Test in Web Chat in the Azure portal |
 | Bot on a dentistry-themed static web app | https://yellow-sea-0b13a8003.5.azurestaticapps.net and `screenshots/website_bot_test.png` |
 | Deployment automated with GitHub Actions | The Azure-generated workflows in [`.github/workflows`](.github/workflows): `master_contoso-dental-bot-app-f80d.yml`, `master_contoso-dental-scheduler-f80d.yml`, `azure-static-web-apps-yellow-sea-0b13a8003.yml` |
 
