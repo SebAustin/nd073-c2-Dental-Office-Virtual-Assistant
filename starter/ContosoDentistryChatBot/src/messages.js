@@ -4,15 +4,16 @@
 const PRACTICE_PHONE = '(555) 010-2024';
 
 const messages = Object.freeze({
+    // Web Chat and the Emulator render Markdown: paragraphs need blank lines and lists need "- ".
     welcome: [
-        'Hi, I\'m Denta, the virtual assistant for Contoso Dentistry. 🦷',
-        'I can:',
-        '• show which appointment times are open — try "What appointments are available?"',
-        '• book a time for you — try "Book me in at 10am"',
-        '• answer questions about insurance, kids, our hours, location and team — try "I don\'t have insurance. Can I still be seen?"',
-        '',
-        'Say "start over" to begin again, "cancel" to stop a booking, or "forget my appointment" to clear the time I\'m holding.'
-    ].join('\n'),
+        'Hi, I\'m **Denta**, the virtual assistant for Contoso Dentistry. 🦷 I can:',
+        [
+            '- **show open appointment times**: try "What appointments are available?"',
+            '- **book a time for you**: try "Book me in at 10am"',
+            '- **answer questions** about insurance, kids, our hours, location and team: try "I don\'t have insurance. Can I still be seen?"'
+        ].join('\n'),
+        'Say **start over** to begin again, **cancel** to stop a booking, or **forget my appointment** to clear the time I\'m holding.'
+    ].join('\n\n'),
 
     availability: (slots) => `Here are the open appointment times: ${ slots.join(', ') }. Tap one to book it.`,
     noAvailability: 'There are no open appointment times right now. Please call us on ' + PRACTICE_PHONE + '.',
