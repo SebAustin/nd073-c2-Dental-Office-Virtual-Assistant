@@ -3,5 +3,5 @@
 window.CONTOSO_CHAT = Object.freeze({
     tokenUrl: ['localhost', '127.0.0.1'].includes(window.location.hostname)
         ? 'http://localhost:3978/api/token'
-        : 'https://BOT_APP_NAME.azurewebsites.net/api/token'
+        : 'https://contoso-dental-bot-app-f80d.azurewebsites.net/api/token'
 });
