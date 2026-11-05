@@ -14,7 +14,7 @@ function joinUrl(base, path) {
  * @param {typeof fetch} fetchImpl
  * @param {string} url
  * @param {{ method?: string, headers?: Record<string, string>, body?: unknown, service: string }} options
- * @returns {Promise<unknown>}
+ * @returns {Promise<unknown>} the parsed JSON, or undefined when the reply has no body
  */
 async function requestJson(fetchImpl, url, { method = 'GET', headers = {}, body, service }) {
     const init = {
@@ -27,7 +27,9 @@ async function requestJson(fetchImpl, url, { method = 'GET', headers = {}, body,
     if (!response.ok) {
         throw new Error(`${ service } request failed with HTTP ${ response.status }`);
     }
-    return response.json();
+    // Some services (the Dentist Scheduler's POST /schedule) answer 200 with an empty body.
+    const text = await response.text();
+    return text.trim() ? JSON.parse(text) : undefined;
 }
 
 module.exports = { joinUrl, requestJson };

@@ -87,6 +87,8 @@ create_single_tenant_identity() {
     if [ -z "$APP_ID" ]; then
         APP_ID="$(az ad app create --display-name "$AAD_APP" --sign-in-audience AzureADMyOrg --query appId -o tsv 2>/dev/null)" || return 1
     fi
+    # The bot authenticates with client credentials, which needs a service principal in the tenant.
+    az ad sp show --id "$APP_ID" -o none 2>/dev/null || az ad sp create --id "$APP_ID" -o none || return 1
     APP_PASSWORD="$(az ad app credential reset --id "$APP_ID" --display-name bot-secret --years 1 --query password -o tsv --only-show-errors)" || return 1
     APP_TYPE=SingleTenant
 }

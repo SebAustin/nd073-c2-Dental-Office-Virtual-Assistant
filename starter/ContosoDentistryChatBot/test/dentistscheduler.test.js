@@ -31,6 +31,13 @@ describe('DentistScheduler', () => {
         expect(calls[0].body).toEqual({ time: '10am' });
     });
 
+    test('accepts the real scheduler\'s empty reply to a booking', async () => {
+        const { fetchImpl } = fakeFetch(undefined, { rawText: '' });
+
+        await expect(new DentistScheduler({ SchedulerEndpoint: 'https://s/' }, fetchImpl).scheduleAppointment('10am'))
+            .resolves.toBeUndefined();
+    });
+
     test('rejects an availability payload that is not a list of strings', async () => {
         const { fetchImpl } = fakeFetch({ message: 'hello world' });
 
