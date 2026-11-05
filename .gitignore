@@ -1,0 +1,5 @@
+.azure/
+.env
+node_modules/
+coverage/
+.DS_Store

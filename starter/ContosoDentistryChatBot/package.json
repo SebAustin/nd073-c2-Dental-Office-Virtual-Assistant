@@ -1,33 +1,41 @@
 {
-    "name": "testbot",
-    "version": "1.0.0",
-    "description": "Demonstrate the core capabilities of the Microsoft Bot Framework",
-    "author": "Generated using Microsoft Bot Builder Yeoman generator v4.12.0",
-    "license": "MIT",
+    "name": "contoso-dentistry-chatbot",
+    "version": "2.0.0",
+    "description": "Contoso Dentistry virtual assistant: answers FAQs (Custom Question Answering) and schedules appointments (CLU + Dentist Scheduler API).",
     "main": "index.js",
+    "private": true,
+    "engines": {
+        "node": ">=22"
+    },
     "scripts": {
         "start": "node ./index.js",
-        "watch": "nodemon ./index.js",
-        "lint": "eslint .",
-        "test": "echo \"Error: no test specified\""
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com"
+        "watch": "node --watch ./index.js",
+        "test": "jest",
+        "test:coverage": "jest --coverage"
     },
     "dependencies": {
-        "botbuilder": "~4.11.0",
-        "botbuilder-ai": "^4.12.0",
-        "dotenv": "^8.2.0",
-        "restify": "~8.5.1"
+        "botbuilder": "^4.23.3",
+        "dotenv": "^16.4.7",
+        "express": "^5.1.0"
     },
     "devDependencies": {
-        "eslint": "^7.0.0",
-        "eslint-config-standard": "^14.1.1",
-        "eslint-plugin-import": "^2.20.2",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-standard": "^4.0.1",
-        "nodemon": "~2.0.4"
+        "jest": "^30.0.0"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "collectCoverageFrom": [
+            "src/**/*.js",
+            "bot.js",
+            "intentrecognizer.js",
+            "dentistscheduler.js"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 80,
+                "functions": 80,
+                "lines": 80,
+                "statements": 80
+            }
+        }
     }
 }

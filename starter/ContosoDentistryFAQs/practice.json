@@ -1,0 +1,80 @@
+{
+    "_note": "Contoso Dentistry is fictional. Every detail below is invented for the Udacity project. This file is the single source of practice facts: build-faq.js turns `qna` into FAQ-extended.tsv, and website tests check the site shows the same address, phone and hours.",
+    "name": "Contoso Dentistry",
+    "phone": "(555) 010-2024",
+    "email": "hello@contosodentistry.example",
+    "address": {
+        "street": "1200 Harbor Avenue, Suite 210",
+        "city": "Seattle",
+        "region": "WA",
+        "postalCode": "98101",
+        "oneLine": "1200 Harbor Avenue, Suite 210, Seattle, WA 98101"
+    },
+    "hours": [
+        { "days": "Monday – Friday", "open": "8am", "close": "5pm" },
+        { "days": "Saturday", "open": "9am", "close": "1pm" },
+        { "days": "Sunday", "open": null, "close": null }
+    ],
+    "staff": [
+        { "name": "Dr. Amara Okafor, DDS", "role": "Lead dentist", "focus": "general and cosmetic dentistry" },
+        { "name": "Dr. Luis Herrera, DMD", "role": "Family dentist", "focus": "family and children's dentistry" },
+        { "name": "Dr. Mei Tanaka, DDS", "role": "Orthodontist", "focus": "braces and clear aligners" },
+        { "name": "Jordan Price, RDH", "role": "Dental hygienist", "focus": "cleanings and gum health" }
+    ],
+    "qna": [
+        {
+            "answer": "We're at 1200 Harbor Avenue, Suite 210, Seattle, WA 98101 — on the second floor above the Harbor Café.",
+            "questions": ["Where are you located?", "What is your address?", "Where is the office?", "How do I find you?", "What's your location?"]
+        },
+        {
+            "answer": "Free parking is available in the building's garage — bring your ticket to the front desk and we'll validate it. Several bus routes stop at Harbor Ave & 3rd, one block away.",
+            "questions": ["Is there parking?", "Where can I park?", "Do you validate parking?", "Can I take the bus to your office?"]
+        },
+        {
+            "answer": "We're open Monday to Friday 8am–5pm and Saturday 9am–1pm. We're closed on Sundays.",
+            "questions": ["What are your hours?", "When are you open?", "Are you open on Saturday?", "Are you open on weekends?", "What time do you close?", "Are you open Sunday?"]
+        },
+        {
+            "answer": "Our team: Dr. Amara Okafor (lead dentist, general and cosmetic care), Dr. Luis Herrera (family and children's dentistry), Dr. Mei Tanaka (orthodontist — braces and clear aligners) and Jordan Price (dental hygienist).",
+            "questions": ["Who are your dentists?", "Who works there?", "Tell me about your staff", "Who is the dentist?", "Who will I see?", "Who is on your team?"]
+        },
+        {
+            "answer": "Dr. Mei Tanaka is our orthodontist. She offers traditional braces and clear aligners for teens and adults.",
+            "questions": ["Do you do braces?", "Do you offer Invisalign or clear aligners?", "Do you have an orthodontist?", "Can I get my teeth straightened?"]
+        },
+        {
+            "answer": "We offer check-ups and cleanings, fillings, crowns and bridges, teeth whitening, braces and clear aligners, and same-day emergency care.",
+            "questions": ["What services do you offer?", "What treatments do you provide?", "Do you do teeth whitening?", "Do you do crowns?", "Do you do fillings?"]
+        },
+        {
+            "answer": "For a dental emergency, call us on (555) 010-2024 — we keep same-day slots for urgent pain, swelling or a broken tooth. Outside opening hours, our voicemail gives the on-call dentist's number.",
+            "questions": ["I have a dental emergency", "I have tooth pain, what should I do?", "My tooth is broken", "Do you take emergencies?", "What if I need a dentist after hours?"]
+        },
+        {
+            "answer": "You can call us on (555) 010-2024 or email hello@contosodentistry.example. We reply to emails within one business day.",
+            "questions": ["What is your phone number?", "How can I contact you?", "What is your email?", "Can I call the office?"]
+        },
+        {
+            "answer": "Please give us at least 24 hours' notice if you need to cancel or move an appointment — just call (555) 010-2024.",
+            "questions": ["What is your cancellation policy?", "How do I cancel my appointment?", "Can I reschedule my appointment?", "Is there a fee for missing an appointment?"]
+        },
+        {
+            "answer": "We accept most PPO dental plans, all major cards and HSA/FSA cards, and offer interest-free payment plans for up to 12 months.",
+            "questions": ["Which insurance do you accept?", "Do you offer payment plans?", "Can I pay with my HSA card?", "How can I pay?", "Do you take credit cards?"]
+        },
+        {
+            "answer": "Welcome! Please arrive 15 minutes early for your first visit and bring a photo ID, your insurance card if you have one, and a list of any medications you take.",
+            "questions": ["What should I bring to my first visit?", "What happens at my first appointment?", "How early should I arrive?", "I'm a new patient, what do I need?"]
+        }
+    ],
+    "testimonials": [
+        { "quote": "Dr. Okafor explained every step and I didn't feel a thing. First time I've left a dentist smiling.", "author": "Priya S.", "detail": "Patient since 2023" },
+        { "quote": "My two kids actually ask when their next check-up is. Dr. Herrera is wonderful with nervous children.", "author": "Marcus T.", "detail": "Family of four" },
+        { "quote": "No insurance, no judgement — they set me up with a payment plan the same day.", "author": "Elena R.", "detail": "New patient" }
+    ],
+    "social": {
+        "instagram": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/",
+        "x": "https://x.com/"
+    }
+}

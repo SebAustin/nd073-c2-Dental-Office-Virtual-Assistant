@@ -1,0 +1,573 @@
+{
+  "projectFileVersion": "2023-04-01",
+  "stringIndexType": "Utf16CodeUnit",
+  "metadata": {
+    "projectKind": "Conversation",
+    "projectName": "ContosoDentistryCLU",
+    "description": "Contoso Dentistry scheduling intents (successor to the course LUIS app).",
+    "language": "en-us",
+    "multilingual": false,
+    "settings": {
+      "confidenceThreshold": 0
+    }
+  },
+  "assets": {
+    "projectKind": "Conversation",
+    "intents": [
+      {
+        "category": "GetAvailability"
+      },
+      {
+        "category": "ScheduleAppointment"
+      },
+      {
+        "category": "None"
+      }
+    ],
+    "entities": [
+      {
+        "category": "DateTime",
+        "compositionSetting": "combineComponents",
+        "prebuilts": [
+          {
+            "category": "DateTime"
+          }
+        ]
+      }
+    ],
+    "utterances": [
+      {
+        "text": "What appointments are available?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "What times are available?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Which appointment times are open?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Do you have any openings?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "When can I come in?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Show me available time slots",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Are there any free slots today?",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 25,
+            "length": 5
+          }
+        ],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "What times can I book?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Is anything available this afternoon?",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 22,
+            "length": 14
+          }
+        ],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Any openings tomorrow morning?",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 13,
+            "length": 16
+          }
+        ],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "When is the next available appointment?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "What does your availability look like?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "List the open times",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Do you have room for a new patient this week?",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 35,
+            "length": 9
+          }
+        ],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Can you check availability for me?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "What slots do you have free?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Is the dentist free today?",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 20,
+            "length": 5
+          }
+        ],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "When are you able to see me?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "What appointment times do you have?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Any availability?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "GetAvailability",
+        "dataset": "Train"
+      },
+      {
+        "text": "Book me in at 10am",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 14,
+            "length": 4
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "I'd like to schedule an appointment",
+        "entities": [],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Can I book an appointment for 2pm?",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 30,
+            "length": 3
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Schedule me for 9am please",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 16,
+            "length": 3
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "I want to make an appointment",
+        "entities": [],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Book an appointment at 3pm",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 23,
+            "length": 3
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Please reserve 11am for me",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 15,
+            "length": 4
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Can I come in at 1pm?",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 17,
+            "length": 3
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "I need to book a cleaning",
+        "entities": [],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Set up an appointment for 8am",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 26,
+            "length": 3
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "I'd like the 4pm slot",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 13,
+            "length": 3
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Put me down for noon",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 16,
+            "length": 4
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Can you book me for 10 o'clock?",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 20,
+            "length": 10
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Make an appointment for me at 2 pm",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 30,
+            "length": 4
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "I need an appointment",
+        "entities": [],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Book 9am",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 5,
+            "length": 3
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "I'll take 12pm",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 10,
+            "length": 4
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Schedule a check-up at 3pm",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 23,
+            "length": 3
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "Can I get in at 11 am?",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 16,
+            "length": 5
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "I want to see the dentist at 1 pm",
+        "entities": [
+          {
+            "category": "DateTime",
+            "offset": 29,
+            "length": 4
+          }
+        ],
+        "language": "en-us",
+        "intent": "ScheduleAppointment",
+        "dataset": "Train"
+      },
+      {
+        "text": "I don't have insurance. Can I still be seen?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "Do you accept my insurance?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "Can you treat my child?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "What is the youngest patient you accept?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "Are you accepting new patients?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "Where are you located?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "What are your hours?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "Who are your dentists?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "Is there parking?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "Do you do teeth whitening?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "What is your phone number?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "What is your cancellation policy?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "Do you offer payment plans?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "Hello",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "Thanks!",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "What should I bring to my first visit?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "I have a toothache",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      },
+      {
+        "text": "What's the weather like?",
+        "entities": [],
+        "language": "en-us",
+        "intent": "None",
+        "dataset": "Train"
+      }
+    ]
+  }
+}

@@ -1,42 +1,72 @@
-const {LuisRecognizer} = require('botbuilder-ai')
+// Recognises what a patient wants using Conversational Language Understanding (CLU),
+// the Azure AI Language successor to LUIS (see docs/adr/0001).
+
+const { joinUrl, requestJson } = require('./src/http');
+const { fromClockValue, parseTimeSlot } = require('./src/timeslots');
+
+const CLU_API_VERSION = '2023-04-01';
+const DATETIME_CATEGORY = 'datetime';
+
+/**
+ * @typedef {{ intent: string, confidence: number, slot: string | undefined }} Recognition
+ * @typedef {{ endpoint: string, key: string, projectName: string, deploymentName: string }} CluConfig
+ */
 
 class IntentRecognizer {
-    constructor(config) {
-        const luisIsConfigured = config && config.applicationId && config.endpointKey && config.endpoint;
-        if (luisIsConfigured) {
-            // Set the recognizer options depending on which endpoint version you want to use e.g v2 or v3.
-            // More details can be found in https://docs.microsoft.com/en-gb/azure/cognitive-services/luis/luis-migration-api-v3
-            const recognizerOptions = {
-                apiVersion: 'v3'
-            };
-
-            this.recognizer = new LuisRecognizer(config, recognizerOptions);
-        }
+    /**
+     * @param {CluConfig} config
+     * @param {typeof fetch} [fetchImpl]
+     */
+    constructor(config, fetchImpl = fetch) {
+        this.config = config;
+        this.fetchImpl = fetchImpl;
     }
 
     get isConfigured() {
-        return (this.recognizer !== undefined);
+        const { endpoint, key, projectName, deploymentName } = this.config || {};
+        return Boolean(endpoint && key && projectName && deploymentName);
     }
 
     /**
-     * Returns an object with preformatted LUIS results for the bot's dialogs to consume.
-     * @param {TurnContext} context
+     * @param {string} text
+     * @returns {Promise<Recognition>}
      */
-    async executeLuisQuery(context) {
-        return await this.recognizer.recognize(context);
+    async recognize(text) {
+        const { endpoint, key, projectName, deploymentName } = this.config;
+        const url = joinUrl(endpoint, `language/:analyze-conversations?api-version=${ CLU_API_VERSION }`);
+        const response = await requestJson(this.fetchImpl, url, {
+            method: 'POST',
+            service: 'CLU',
+            headers: { 'Ocp-Apim-Subscription-Key': key },
+            body: {
+                kind: 'Conversation',
+                analysisInput: { conversationItem: { id: '1', participantId: 'patient', text } },
+                parameters: { projectName, deploymentName, stringIndexType: 'TextElement_V8' }
+            }
+        });
+
+        const prediction = response.result.prediction;
+        const top = prediction.intents.find((intent) => intent.category === prediction.topIntent);
+        return {
+            intent: prediction.topIntent,
+            confidence: top ? top.confidenceScore : 0,
+            slot: this.getTimeEntity(prediction)
+        };
     }
 
- 
-    getTimeEntity(result) {
-        const datetimeEntity = result.entities.datetime;
-        if (!datetimeEntity || !datetimeEntity[0]) return undefined;
+    /**
+     * Reads the requested time slot from the first DateTime entity, if any.
+     * @param {{ entities?: Array<{ category: string, text: string, resolutions?: Array<{ value?: string, timex?: string }> }> }} prediction
+     * @returns {string | undefined}
+     */
+    getTimeEntity(prediction) {
+        const entity = (prediction.entities || []).find((e) => e.category.toLowerCase() === DATETIME_CATEGORY);
+        if (!entity) return undefined;
 
-        const timex = datetimeEntity[0].timex;
-        if (!timex || !timex[0]) return undefined;
-
-        const datetime = timex[0]
-        return datetime;
+        const resolution = (entity.resolutions || [])[0];
+        const resolved = resolution && (fromClockValue(resolution.value) || fromClockValue(resolution.timex));
+        return resolved || parseTimeSlot(entity.text);
     }
 }
 
-module.exports = IntentRecognizer
+module.exports = IntentRecognizer;
